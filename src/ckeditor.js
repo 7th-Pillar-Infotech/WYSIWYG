@@ -5,7 +5,6 @@
 
 // The editor creator to use.
 import ClassicEditorBase from "@ckeditor/ckeditor5-editor-classic/src/classiceditor";
-
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials";
 import UploadAdapter from "@ckeditor/ckeditor5-adapter-ckfinder/src/uploadadapter";
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
@@ -38,6 +37,7 @@ ClassicEditor.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
+	Placeholder,
 	Bold,
 	Italic,
 	BlockQuote,
@@ -58,7 +58,6 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
-	Placeholder,
 ];
 
 // Editor configuration.
@@ -67,6 +66,7 @@ ClassicEditor.defaultConfig = {
 		items: [
 			"heading",
 			"|",
+			"placeholder",
 			"bold",
 			"italic",
 			"link",
@@ -82,7 +82,6 @@ ClassicEditor.defaultConfig = {
 			"mediaEmbed",
 			"undo",
 			"redo",
-			"placeholder",
 		],
 	},
 	placeholderProps: {
