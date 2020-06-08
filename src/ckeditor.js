@@ -62,6 +62,7 @@ ClassicEditor.builtinPlugins = [
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
+	height: "100%",
 	toolbar: {
 		items: [
 			"heading",
@@ -80,7 +81,7 @@ ClassicEditor.defaultConfig = {
 		],
 	},
 	placeholderProps: {
-		types: ["First Name", "Date"],
+		types: [],
 	},
 	image: {
 		toolbar: [
