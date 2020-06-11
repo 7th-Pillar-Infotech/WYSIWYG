@@ -29,6 +29,7 @@ import Table from "@ckeditor/ckeditor5-table/src/table";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation";
 import Placeholder from "./src";
+import MinHeightPlugin from "./MinHeight";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
@@ -37,7 +38,7 @@ ClassicEditor.builtinPlugins = [
 	Essentials,
 	UploadAdapter,
 	Autoformat,
-	Placeholder,
+	// Placeholder,
 	Bold,
 	Italic,
 	BlockQuote,
@@ -58,11 +59,12 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
+	MinHeightPlugin,
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
-	height: "100%",
+	minHeight: "300px",
 	toolbar: {
 		items: [
 			"heading",
@@ -79,9 +81,6 @@ ClassicEditor.defaultConfig = {
 			"undo",
 			"redo",
 		],
-	},
-	placeholderProps: {
-		types: [],
 	},
 	image: {
 		toolbar: [
