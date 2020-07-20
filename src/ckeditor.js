@@ -28,6 +28,7 @@ import PasteFromOffice from "@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from "@ckeditor/ckeditor5-table/src/table";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation";
+import Alignment from "@ckeditor/ckeditor5-alignment/src/alignment";
 import Placeholder from "./src";
 import MinHeightPlugin from "./MinHeight";
 
@@ -39,6 +40,7 @@ ClassicEditor.builtinPlugins = [
 	UploadAdapter,
 	Autoformat,
 	// Placeholder,
+	Alignment,
 	Bold,
 	Italic,
 	BlockQuote,
@@ -65,11 +67,15 @@ ClassicEditor.builtinPlugins = [
 // Editor configuration.
 ClassicEditor.defaultConfig = {
 	minHeight: "300px",
+	alignment: {
+		options: ["left", "center", "right"],
+	},
 	toolbar: {
 		items: [
 			"heading",
 			"|",
 			"placeholder",
+			"alignment",
 			"bold",
 			"italic",
 			"bulletedList",
