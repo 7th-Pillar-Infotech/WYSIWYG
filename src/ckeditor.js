@@ -5,15 +5,14 @@
 
 // The editor creator to use.
 import ClassicEditorBase from "@ckeditor/ckeditor5-editor-classic/src/classiceditor";
-
 import Essentials from "@ckeditor/ckeditor5-essentials/src/essentials";
-import SimpleUploadAdapter from "@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter";
+
 import Autoformat from "@ckeditor/ckeditor5-autoformat/src/autoformat";
 import Bold from "./Bold";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic";
+import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline";
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote";
-import CKFinder from "@ckeditor/ckeditor5-ckfinder/src/ckfinder";
-import EasyImage from "@ckeditor/ckeditor5-easy-image/src/easyimage";
+
 import Heading from "@ckeditor/ckeditor5-heading/src/heading";
 import Image from "@ckeditor/ckeditor5-image/src/image";
 import ImageCaption from "@ckeditor/ckeditor5-image/src/imagecaption";
@@ -29,22 +28,25 @@ import PasteFromOffice from "@ckeditor/ckeditor5-paste-from-office/src/pastefrom
 import Table from "@ckeditor/ckeditor5-table/src/table";
 import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation";
+import Placeholder from "./src";
+import MinHeightPlugin from "./MinHeight";
+import ImageResize from "@ckeditor/ckeditor5-image/src/imageresize";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
-	SimpleUploadAdapter,
+
 	Autoformat,
+	// Placeholder,
 	Bold,
+	Underline,
 	Italic,
 	BlockQuote,
-	CKFinder,
-	EasyImage,
 	Heading,
 	Image,
-	ImageCaption,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -57,48 +59,38 @@ ClassicEditor.builtinPlugins = [
 	Table,
 	TableToolbar,
 	TextTransformation,
+	MinHeightPlugin,
 ];
 
 // Editor configuration.
 ClassicEditor.defaultConfig = {
-	simpleUpload: {
-		// The URL that the images are uploaded to.
-		uploadUrl: "http://example.com",
-
-		// Enable the XMLHttpRequest.withCredentials property.
-		withCredentials: true,
-
-		// Headers sent along with the XMLHttpRequest to the upload server.
-		headers: {
-			"X-CSRF-TOKEN": "CSFR-Token",
-			Authorization: "Bearer <JSON Web Token>",
-		},
-	},
+	minHeight: "300px",
 	toolbar: {
 		items: [
 			"heading",
 			"|",
+			"placeholder",
 			"bold",
+			"underline",
 			"italic",
-			"link",
 			"bulletedList",
 			"numberedList",
 			"|",
+			"imageUpload",
 			"indent",
 			"outdent",
 			"|",
-			"imageUpload",
-			"blockQuote",
-			"insertTable",
-			"mediaEmbed",
 			"undo",
 			"redo",
 		],
 	},
+
 	image: {
+		styles: ["alignLeft", "alignCenter", "alignRight"],
 		toolbar: [
-			"imageStyle:full",
-			"imageStyle:side",
+			"imageStyle:alignLeft",
+			"imageStyle:alignCenter",
+			"imageStyle:alignRight",
 			"|",
 			"imageTextAlternative",
 		],
