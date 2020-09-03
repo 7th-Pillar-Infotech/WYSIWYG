@@ -31,15 +31,18 @@ import TableToolbar from "@ckeditor/ckeditor5-table/src/tabletoolbar";
 import TextTransformation from "@ckeditor/ckeditor5-typing/src/texttransformation";
 import Placeholder from "./src";
 import MinHeightPlugin from "./MinHeight";
+import InsertImage from "./FileUploader";
+import ImageResize from "@ckeditor/ckeditor5-image/src/imageresize";
+import SimpleUploadAdapter from "@ckeditor/ckeditor5-upload/src/adapters/simpleuploadadapter";
 
 export default class ClassicEditor extends ClassicEditorBase {}
 
 // Plugins to include in the build.
 ClassicEditor.builtinPlugins = [
 	Essentials,
+	SimpleUploadAdapter,
 	UploadAdapter,
 	Autoformat,
-	// Placeholder,
 	Bold,
 	Underline,
 	Italic,
@@ -48,7 +51,8 @@ ClassicEditor.builtinPlugins = [
 	EasyImage,
 	Heading,
 	Image,
-	ImageCaption,
+	InsertImage,
+	ImageResize,
 	ImageStyle,
 	ImageToolbar,
 	ImageUpload,
@@ -71,6 +75,7 @@ ClassicEditor.defaultConfig = {
 		items: [
 			"heading",
 			"|",
+			"insertImage",
 			"placeholder",
 			"bold",
 			"underline",
@@ -87,9 +92,15 @@ ClassicEditor.defaultConfig = {
 	},
 
 	image: {
+		// Configure the available styles.
+		styles: ["alignLeft", "alignCenter", "alignRight"],
+
+		// You need to configure the image toolbar, too, so it shows the new style
+		// buttons as well as the resize buttons.
 		toolbar: [
-			"imageStyle:full",
-			"imageStyle:side",
+			"imageStyle:alignLeft",
+			"imageStyle:alignCenter",
+			"imageStyle:alignRight",
 			"|",
 			"imageTextAlternative",
 		],
@@ -100,3 +111,10 @@ ClassicEditor.defaultConfig = {
 	// This value must be kept in sync with the language defined in webpack.config.js.
 	language: "en",
 };
+
+// "imageStyle:full",
+// 			"imageStyle:side",
+// 			"|",
+// 			"imageResize:50",
+// 			"imageResize:75",
+// 			"imageResize:original",
