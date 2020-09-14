@@ -91,8 +91,6 @@ ClassicEditor.defaultConfig = {
 			"imageStyle:alignLeft",
 			"imageStyle:alignCenter",
 			"imageStyle:alignRight",
-			"|",
-			"imageTextAlternative",
 		],
 	},
 	table: {
