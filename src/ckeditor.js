@@ -12,7 +12,6 @@ import Bold from "./Bold";
 import Italic from "@ckeditor/ckeditor5-basic-styles/src/italic";
 import Underline from "@ckeditor/ckeditor5-basic-styles/src/underline";
 import BlockQuote from "@ckeditor/ckeditor5-block-quote/src/blockquote";
-
 import Heading from "@ckeditor/ckeditor5-heading/src/heading";
 import Image from "@ckeditor/ckeditor5-image/src/image";
 import ImageCaption from "@ckeditor/ckeditor5-image/src/imagecaption";
@@ -84,7 +83,7 @@ ClassicEditor.defaultConfig = {
 			"redo",
 		],
 	},
-
+	mediaEmbed: { previewsInData: true },
 	image: {
 		styles: ["alignLeft", "alignCenter", "alignRight"],
 		toolbar: [
